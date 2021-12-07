@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendChat" customModule="Total" customModuleProvider="target">
+            <connections>
+                <outlet property="sendButton" destination="vjq-Yw-0bY" id="Bwt-YT-itL"/>
+                <outlet property="sendLike" destination="Iry-FZ-w8g" id="yRZ-Tz-tv8"/>
+                <outlet property="stackView" destination="hB8-dN-T9h" id="CPH-oF-Y1s"/>
+                <outlet property="textView" destination="R9S-uS-tes" id="h9C-qG-Y4I"/>
+                <outlet property="textViewContent" destination="r4O-am-x7o" id="Zrg-XD-Yvg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-dN-T9h">
+                    <rect key="frame" x="15" y="0.0" width="345" height="57"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-FZ-w8g">
+                            <rect key="frame" x="0.0" y="21" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="Qm2-9J-0I3"/>
+                                <constraint firstAttribute="width" constant="36" id="UNW-IZ-h1i"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button" image="btn_bt_heart_on">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="disabled" image="btn_bt_heart_off"/>
+                            <state key="highlighted" image="btn_bt_heart_off" backgroundImage="btn_bt_heart_off">
+                                <color key="titleColor" systemColor="systemGray2Color"/>
+                            </state>
+                            <connections>
+                                <action selector="clickLike:" destination="-1" eventType="touchUpInside" id="HgJ-jo-008"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9S-uS-tes">
+                            <rect key="frame" x="44" y="0.0" width="229" height="57"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="대화를 입력하세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r4O-am-x7o">
+                                    <rect key="frame" x="15" y="8.5" width="199" height="40.5"/>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="r4O-am-x7o" firstAttribute="top" secondItem="R9S-uS-tes" secondAttribute="top" constant="8.5" id="APx-fW-Wih"/>
+                                <constraint firstAttribute="bottom" secondItem="r4O-am-x7o" secondAttribute="bottom" constant="8" id="Ebe-g6-VwH"/>
+                                <constraint firstAttribute="trailing" secondItem="r4O-am-x7o" secondAttribute="trailing" constant="15" id="GrV-fI-2dA"/>
+                                <constraint firstItem="r4O-am-x7o" firstAttribute="leading" secondItem="R9S-uS-tes" secondAttribute="leading" constant="15" id="kpN-W9-Xvq"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjq-Yw-0bY">
+                            <rect key="frame" x="281" y="21" width="64" height="36"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="mDY-Se-i4s"/>
+                                <constraint firstAttribute="height" constant="36" id="oAQ-yD-dfR"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="btn_bt_send">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="sendMessage:" destination="-1" eventType="touchUpInside" id="y4g-f0-K9E"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <gestureRecognizers/>
+                </stackView>
+            </subviews>
+            <color key="tintColor" red="0.99917918439999998" green="0.37644818429999999" blue="0.4820210338" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hB8-dN-T9h" secondAttribute="trailing" constant="15" id="0zB-0d-2cM"/>
+                <constraint firstItem="R9S-uS-tes" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6Cr-c3-LQn"/>
+                <constraint firstAttribute="bottom" secondItem="hB8-dN-T9h" secondAttribute="bottom" constant="5" id="OaF-Ss-MjW"/>
+                <constraint firstItem="hB8-dN-T9h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="m1n-uz-Lle"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="312.31884057971018" y="-6.6964285714285712"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_bt_heart_off" width="36" height="36"/>
+        <image name="btn_bt_heart_on" width="36" height="36"/>
+        <image name="btn_bt_send" width="64" height="36"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

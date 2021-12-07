@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateView" customModule="Total" customModuleProvider="target">
+            <connections>
+                <outlet property="checkButton" destination="rA3-5D-1B9" id="5r3-mE-H5E"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="592"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-sc-VYB">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="371"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyF-Uw-PIu">
+                    <rect key="frame" x="0.0" y="371" width="414" height="221"/>
+                    <subviews>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="itL-T1-e7v">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="140" id="PrK-9Z-niM"/>
+                            </constraints>
+                            <date key="maximumDate" timeIntervalSinceReferenceDate="658148400">
+                                <!--2021-11-09 11:00:00 +0000-->
+                            </date>
+                            <locale key="locale" localeIdentifier="ko"/>
+                            <connections>
+                                <action selector="updateDay:" destination="-1" eventType="valueChanged" id="YNe-VZ-riH"/>
+                                <action selector="updateMonth:" destination="-1" eventType="valueChanged" id="Tg2-bR-JA4"/>
+                                <action selector="updateTime:" destination="-1" eventType="valueChanged" id="U6m-4Y-ydR"/>
+                            </connections>
+                        </datePicker>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA3-5D-1B9">
+                            <rect key="frame" x="167" y="160" width="80" height="35"/>
+                            <color key="backgroundColor" red="0.59711176160000001" green="0.41855239869999999" blue="0.99864190819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="5uV-HB-jiG"/>
+                                <constraint firstAttribute="width" constant="80" id="hzl-cl-y2m"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="확인">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="pickDate:" destination="-1" eventType="touchUpInside" id="uVC-oM-STz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="itL-T1-e7v" secondAttribute="trailing" id="9d7-KR-uJB"/>
+                        <constraint firstAttribute="height" constant="221" id="WEA-x5-Vge"/>
+                        <constraint firstItem="itL-T1-e7v" firstAttribute="leading" secondItem="vyF-Uw-PIu" secondAttribute="leading" id="fgY-Td-nE0"/>
+                        <constraint firstItem="itL-T1-e7v" firstAttribute="top" secondItem="vyF-Uw-PIu" secondAttribute="top" id="htZ-OZ-SWn"/>
+                        <constraint firstItem="rA3-5D-1B9" firstAttribute="centerX" secondItem="itL-T1-e7v" secondAttribute="centerX" id="m6h-sl-6cI"/>
+                        <constraint firstItem="rA3-5D-1B9" firstAttribute="top" secondItem="itL-T1-e7v" secondAttribute="bottom" constant="20" id="vG5-rr-jw5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vyF-Uw-PIu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ahs-cE-9hz"/>
+                <constraint firstAttribute="bottom" secondItem="vyF-Uw-PIu" secondAttribute="bottom" id="Bcx-MG-j8e"/>
+                <constraint firstAttribute="trailing" secondItem="vyF-Uw-PIu" secondAttribute="trailing" id="Dgf-dq-0l8"/>
+                <constraint firstItem="vyF-Uw-PIu" firstAttribute="top" secondItem="JXH-sc-VYB" secondAttribute="bottom" id="EEt-d3-ATV"/>
+                <constraint firstItem="JXH-sc-VYB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HsF-DP-Keg"/>
+                <constraint firstItem="JXH-sc-VYB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TJL-z6-UqO"/>
+                <constraint firstAttribute="trailing" secondItem="JXH-sc-VYB" secondAttribute="trailing" id="sfO-UM-I62"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="298.66071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatCell" customModule="Profile" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chat" rowHeight="74" id="KGk-i7-Jjw" customClass="ChatCell" customModule="Profile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NE0-He-qGS">
+                        <rect key="frame" x="67" y="16" width="32" height="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20200106511952" translatesAutoresizingMaskIntoConstraints="NO" id="Bku-wp-Ibj">
+                        <rect key="frame" x="24" y="10" width="34" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="al2-2z-r0x"/>
+                            <constraint firstAttribute="width" constant="34" id="kC8-OY-yhk"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_s01" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-kC-tgo">
+                        <rect key="frame" x="24" y="7" width="34" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="atv-on-Oma"/>
+                            <constraint firstAttribute="width" constant="34" id="hSF-Je-1GK"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-P4-Twi">
+                        <rect key="frame" x="67" y="35.5" width="240" height="25"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목소리 좋으시네요~ 자주 들으러 올게요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn3-95-ehY">
+                                <rect key="frame" x="8" y="4" width="222" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Rn3-95-ehY" secondAttribute="trailing" constant="10" id="Nnc-Q2-so2"/>
+                            <constraint firstAttribute="bottom" secondItem="Rn3-95-ehY" secondAttribute="bottom" constant="4" id="cu8-iS-Unj"/>
+                            <constraint firstItem="Rn3-95-ehY" firstAttribute="top" secondItem="gsb-P4-Twi" secondAttribute="top" constant="4" id="j4q-Wo-crF"/>
+                            <constraint firstItem="Rn3-95-ehY" firstAttribute="leading" secondItem="gsb-P4-Twi" secondAttribute="leading" constant="8" id="qfA-jW-UOV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NE0-He-qGS" firstAttribute="leading" secondItem="xMr-kC-tgo" secondAttribute="trailing" constant="9" id="3We-61-Hcu"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NE0-He-qGS" secondAttribute="trailing" id="42n-sK-z0o"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gsb-P4-Twi" secondAttribute="bottom" constant="5" id="BhB-uW-ZeG"/>
+                    <constraint firstItem="xMr-kC-tgo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="MrW-RX-M4g"/>
+                    <constraint firstItem="gsb-P4-Twi" firstAttribute="top" secondItem="NE0-He-qGS" secondAttribute="bottom" constant="4.5" id="Xwy-cV-zJb"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gsb-P4-Twi" secondAttribute="trailing" id="Yze-O4-1vi"/>
+                    <constraint firstItem="xMr-kC-tgo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="qwg-Eq-51K"/>
+                    <constraint firstItem="Bku-wp-Ibj" firstAttribute="centerX" secondItem="xMr-kC-tgo" secondAttribute="centerX" id="sdW-Si-xFT"/>
+                    <constraint firstItem="gsb-P4-Twi" firstAttribute="leading" secondItem="xMr-kC-tgo" secondAttribute="trailing" constant="9" id="siM-zR-Rss"/>
+                    <constraint firstItem="Bku-wp-Ibj" firstAttribute="top" secondItem="xMr-kC-tgo" secondAttribute="top" constant="3" id="uBp-dI-5VO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="NE0-He-qGS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="OZf-hC-Gxd"/>
+            </constraints>
+            <connections>
+                <outlet property="chatContent" destination="Rn3-95-ehY" id="pdq-IT-XaM"/>
+                <outlet property="chatView" destination="gsb-P4-Twi" id="Zdp-XD-xlP"/>
+                <outlet property="name" destination="NE0-He-qGS" id="gOO-76-dIx"/>
+                <outlet property="profileImage" destination="Bku-wp-Ibj" id="PnU-kE-NP2"/>
+            </connections>
+            <point key="canvasLocation" x="161.59420289855075" y="63.616071428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="20200106511952" width="512" height="512"/>
+        <image name="frame_s01" width="34" height="42"/>
+    </resources>
+</document>
