@@ -84,7 +84,7 @@ class SendChat: UIView {
         self.sendLike.isEnabled = false
         animationView?.stop()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.sendLike.isEnabled = true
             self.animationView?.play()
         }

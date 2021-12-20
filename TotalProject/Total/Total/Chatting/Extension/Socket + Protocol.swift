@@ -34,8 +34,8 @@ extension SocketViewController: SocketOn {
     
     //하트애니메이션 7번 출력
     func heartAnimation() {
-        for _ in 1...7 {
-            self.heartBeat()
+        for _ in 0...6 {
+            self.heartBeat(cnt: animation.count)
         }
     }
 }

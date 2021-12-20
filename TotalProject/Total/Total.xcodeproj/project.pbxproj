@@ -58,6 +58,9 @@
 		F05C29E02757660800FD60A8 /* StoryList + Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C29DF2757660800FD60A8 /* StoryList + Shadow.swift */; };
 		F05C29E32757673000FD60A8 /* SignView + keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C29E22757673000FD60A8 /* SignView + keyboard.swift */; };
 		F05C29E5275768D800FD60A8 /* SendStory + keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C29E4275768D800FD60A8 /* SendStory + keyboard.swift */; };
+		F05F40112761F29200078A45 /* CustomTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F40102761F29200078A45 /* CustomTapGesture.swift */; };
+		F06B41BF27609EC1004BFF18 /* Appdelegate + notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06B41BE27609EC1004BFF18 /* Appdelegate + notification.swift */; };
+		F06B41C12760A23C004BFF18 /* Socket + Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06B41C02760A23C004BFF18 /* Socket + Notification.swift */; };
 		F073B5E32754517100075576 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B5E22754517100075576 /* ProfileModel.swift */; };
 		F073B5E52754519C00075576 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B5E42754519C00075576 /* ProfileViewModel.swift */; };
 		F073B5E82754533700075576 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B5E62754533700075576 /* ProfileCollectionViewCell.swift */; };
@@ -136,6 +139,9 @@
 		F05C29DF2757660800FD60A8 /* StoryList + Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoryList + Shadow.swift"; sourceTree = "<group>"; };
 		F05C29E22757673000FD60A8 /* SignView + keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignView + keyboard.swift"; sourceTree = "<group>"; };
 		F05C29E4275768D800FD60A8 /* SendStory + keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SendStory + keyboard.swift"; sourceTree = "<group>"; };
+		F05F40102761F29200078A45 /* CustomTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGesture.swift; sourceTree = "<group>"; };
+		F06B41BE27609EC1004BFF18 /* Appdelegate + notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate + notification.swift"; sourceTree = "<group>"; };
+		F06B41C02760A23C004BFF18 /* Socket + Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Socket + Notification.swift"; sourceTree = "<group>"; };
 		F073B5E22754517100075576 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		F073B5E42754519C00075576 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F073B5E62754533700075576 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 		F040883927560B2600AA1B1B /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				F05F400F2761F28300078A45 /* Class */,
 				F040885B27561D2000AA1B1B /* Extension */,
 				F040885A27561D0D00AA1B1B /* View */,
 				F040885927561CF100AA1B1B /* Model */,
@@ -296,6 +303,7 @@
 				F040885D27561D3C00AA1B1B /* UIView + blur.swift */,
 				F040885F27561D8E00AA1B1B /* Socket + tableView.swift */,
 				F040886127561DEA00AA1B1B /* Socket + Protocol.swift */,
+				F06B41C02760A23C004BFF18 /* Socket + Notification.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +414,14 @@
 			path = Heart;
 			sourceTree = "<group>";
 		};
+		F05F400F2761F28300078A45 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				F05F40102761F29200078A45 /* CustomTapGesture.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		F073B5EA2754533D00075576 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +439,7 @@
 				F04088162755A78D00AA1B1B /* Data + String.swift */,
 				F040881F2755E04200AA1B1B /* NaverLogin.swift */,
 				F040882B2755E67700AA1B1B /* KakaoLogin.swift */,
+				F06B41BE27609EC1004BFF18 /* Appdelegate + notification.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -752,6 +769,7 @@
 			files = (
 				F073B5F127545A9C00075576 /* TotalViewController.swift in Sources */,
 				F05C29E02757660800FD60A8 /* StoryList + Shadow.swift in Sources */,
+				F06B41BF27609EC1004BFF18 /* Appdelegate + notification.swift in Sources */,
 				F040882C2755E67700AA1B1B /* KakaoLogin.swift in Sources */,
 				F04088302756018000AA1B1B /* DateView.swift in Sources */,
 				F0408838275603F300AA1B1B /* SignView + Image.swift in Sources */,
@@ -792,10 +810,12 @@
 				F0B3184327559FDA0073236D /* StoryCell.swift in Sources */,
 				F04BE9E22754A8B1006762B6 /* SendStory + TextView.swift in Sources */,
 				F05C29DC275764C800FD60A8 /* SendStory + Layout.swift in Sources */,
+				F06B41C12760A23C004BFF18 /* Socket + Notification.swift in Sources */,
 				F04088362756033A00AA1B1B /* signUpDesign.swift in Sources */,
 				F05C29D627575E0B00FD60A8 /* Profile + Layout.swift in Sources */,
 				F04BE9E02754A88F006762B6 /* UIView + Gradient.swift in Sources */,
 				F040884527560BDE00AA1B1B /* RcvServer.swift in Sources */,
+				F05F40112761F29200078A45 /* CustomTapGesture.swift in Sources */,
 				F0408865275621AA00AA1B1B /* Profile + Scroll.swift in Sources */,
 				F04088222755E1EA00AA1B1B /* UserInfo.swift in Sources */,
 				F05C29E32757673000FD60A8 /* SignView + keyboard.swift in Sources */,

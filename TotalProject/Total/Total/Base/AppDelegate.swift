@@ -9,6 +9,7 @@ import UIKit
 import NaverThirdPartyLogin
 import KakaoSDKCommon
 import KakaoSDKAuth
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instance?.consumerSecret = kConsumerSecret
         // 애플리케이션 이름
         instance?.appName = kServiceAppName
+        
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }

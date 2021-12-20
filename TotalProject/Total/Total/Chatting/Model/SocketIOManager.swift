@@ -43,6 +43,10 @@ class SocketIOManager: NSObject {
                     self?.chat.insert(Chat(cmd: result.cmd, msg: result.msg, mem_id: result.from?.mem_id, chat_name: result.from?.chat_name, mem_photo: result.from?.mem_photo), at: 0)
                     
                     self?.vc?.showChat(chat: self?.chat)
+                    
+                    if result.cmd == "rcvSystemMsg" {
+                        self?.vc?.notiSetting(msg: result.msg ?? "유효하지않음")
+                    }
                 } else if result.cmd == "rcvRoomOut" {
                     self?.vc?.roomOut()
                     self?.chat.removeAll()

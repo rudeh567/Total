@@ -10,6 +10,7 @@ import SocketIO
 import Kingfisher
 import SDWebImageWebPCoder
 import Alamofire
+import Lottie
 
 class SocketViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,11 @@ class SocketViewController: UIViewController {
     let userInfo = UserInfo.shared
     
     var cellHeights: [IndexPath : CGFloat] = [:]
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
+    var animation: [UIViewPropertyAnimator] = []
+    var totalAnimation: [UIViewPropertyAnimator] = []
+    var animationView: [AnimationView?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +39,6 @@ class SocketViewController: UIViewController {
         
         SocketIOManager.shared.vc = self
         SocketIOManager.shared.socketOn()
-        
-        print(SocketIOManager.shared.socket.handlers)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,39 +57,118 @@ class SocketViewController: UIViewController {
     }
     
     //MARK: 좋아요 누를 때 하트 애니메이션 설정
-    func heartBeat() {
+    func heartBeat(cnt: Int) {
         guard let path = Bundle.main.path(forResource: "an_like_0\(Int.random(in: 1...5))", ofType: "webp") else { return }
         let url = NSURL(fileURLWithPath: path)
         let imageView = UIImageView()
         imageView.sd_setImage(with: url as URL)
-        
+
         imageView.frame.size = CGSize(width: 50, height: 50)
         imageView.frame.origin = CGPoint(x: Int.random(in: 0...60), y: Int(self.view.frame.height) - Int.random(in: 0...80))
-        imageView.alpha = 0
+        imageView.isUserInteractionEnabled = true
+        imageView.clipsToBounds = true
         
         let startFrame = imageView.frame.size
         let startPoint = imageView.frame.origin
         let duration = Double.random(in: 5.5...6.0)
         
         self.view.addSubview(imageView)
+        let damping = 0.7
+        let distance = 30.0
         
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModePaced) {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration * 0.15) {
-                imageView.frame.origin = CGPoint(x: startPoint.x + CGFloat(Int.random(in: -75...75)), y: CGFloat(startPoint.y - CGFloat(Int.random(in: 100...150))))
-                imageView.alpha = 1
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: duration * 0.15, relativeDuration: duration * 0.55) {
-                imageView.frame = CGRect(x: startPoint.x + CGFloat(Int.random(in: -75...75)), y: CGFloat(startPoint.y - CGFloat(Int.random(in: 250...300))), width: startFrame.width + CGFloat(Int.random(in: 20...30)), height: startFrame.height + CGFloat(Int.random(in: 20...30)))
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: duration * 0.7, relativeDuration: duration * 0.3) {
-                imageView.frame = CGRect(x: startPoint.x + CGFloat(Int.random(in: -75...75)), y: CGFloat(Int.random(in: 0...80)), width: startFrame.width + CGFloat(Int.random(in: 20...30)) + 20, height: startFrame.height + CGFloat(Int.random(in: 20...30)) + 20)
-                imageView.alpha = 0
-            }
-        } completion: { res in
-            imageView.removeFromSuperview()
+        let spring = UIViewPropertyAnimator(duration: 9, dampingRatio: damping) {
+            imageView.transform = CGAffineTransform(translationX: 0, y: self.calDelayFactory(delayFactor: 0, distance: distance, preDistance: distance, sec: 0.2, damping: 0))
         }
+        spring.addAnimations({
+            imageView.transform = CGAffineTransform(translationX: 0, y: self.calDelayFactory(delayFactor: 0.2, distance: distance, preDistance: -distance, sec: 0.2, damping: 0))
+        }, delayFactor: 0.2)
+        spring.addAnimations({
+            imageView.transform = CGAffineTransform(translationX: 0, y: self.calDelayFactory(delayFactor: 0.4, distance: distance, preDistance: distance, sec: 0.2, damping: 0))
+        }, delayFactor: 0.4)
+        spring.addAnimations({
+            imageView.transform = CGAffineTransform(translationX: 0, y: self.calDelayFactory(delayFactor: 0.6, distance: distance, preDistance: -distance, sec: 0.2, damping: damping))
+        }, delayFactor: 0.6)
+        spring.addCompletion { _ in
+            UIView.animate(withDuration: 1, delay: 0, options: []) {
+                imageView.alpha = 0.015
+            } completion: { _ in
+                imageView.removeFromSuperview()
+            }
+        }
+        spring.isUserInteractionEnabled = false
+        
+        animationView.append(AnimationView(name: "ani_live_like_full"))
+        animationView[cnt]?.contentMode = .scaleAspectFill
+        animationView[cnt]?.loopMode = .repeat(3)
+        animationView[cnt]?.frame.size = startFrame
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            let x = startPoint.x + CGFloat(Int.random(in: -75...75))
+            let y = CGFloat(startPoint.y - CGFloat(Int.random(in: 100...150)))
+                                                   
+            imageView.frame.origin = CGPoint(x: x, y: y)
+
+            imageView.alpha = 1
+        }
+        animator.addAnimations {
+            let x = startPoint.x + CGFloat(Int.random(in: -75...75))
+            let y = CGFloat(startPoint.y - CGFloat(Int.random(in: 250...300)))
+            let width = startFrame.width + CGFloat(Int.random(in: 20...30))
+            let height = startFrame.height + CGFloat(Int.random(in: 20...30))
+                                                   
+            imageView.frame = CGRect(x: x, y: y, width: width, height: height)
+                                                   
+            self.animationView[cnt]?.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
+        animator.addAnimations {
+            let x = startPoint.x + CGFloat(Int.random(in: -75...75))
+            let y = CGFloat(Int.random(in: 0...80))
+            let width = startFrame.width + CGFloat(Int.random(in: 20...30)) + 20
+            let height = startFrame.height + CGFloat(Int.random(in: 20...30)) + 20
+                                                   
+            imageView.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
+        animator.addAnimations {
+            imageView.transform = CGAffineTransform(rotationAngle: .pi)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi)
+            imageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+        }
+        animator.addCompletion { _ in
+            spring.startAnimation()
+        }
+        
+        let heartTapGesture = CustomTapGesture(target: self, action: #selector(touchImage(gesture:)))
+        heartTapGesture.cnt = cnt
+        heartTapGesture.image.append(imageView)
+        imageView.addGestureRecognizer(heartTapGesture)
+        
+        animation.append(animator)
+        animator.startAnimation()
+    }
+    
+    func calDelayFactory(delayFactor: Double, distance: Double, preDistance: Double, sec: Double, damping: Double) -> Double {
+        let perfectAnimate = (sec * 10) / (10 - delayFactor * 10) * distance * (damping + 1) + preDistance
+        return perfectAnimate
+    }
+    
+    @objc func touchImage(gesture: CustomTapGesture) {
+        guard let cnt = gesture.cnt else {
+            return
+        }
+        animation[cnt].pauseAnimation()
+        gesture.image[0]?.addSubview(self.animationView[cnt]!)
+        animationView[cnt]?.play(completion: { _ in
+            UIView.animate(withDuration: 1, delay: 0, options: []) {
+                gesture.image[0]?.alpha = 0.015
+            } completion: { _ in
+                gesture.image[0]?.removeFromSuperview()
+            }
+        })
     }
     
     //스크롤 중일경우 내려가기 버튼 출력, 버튼 누를시 맨 아래로 내려감
@@ -202,6 +285,8 @@ class SocketViewController: UIViewController {
         }, completion: {(isCompleted) in toastLabel.removeFromSuperview() }) }
     
 }
+
+
 
 
 

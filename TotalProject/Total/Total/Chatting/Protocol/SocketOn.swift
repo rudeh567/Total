@@ -11,6 +11,7 @@ import Foundation
 
 protocol SocketOn {
     func showChat(chat: [Chat]?)
+    func notiSetting(msg: String)
     func showAlert(msg: String)
     func showToastmsg(msg: String)
     func roomOut()
